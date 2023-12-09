@@ -97,6 +97,8 @@ $notes = getNotes($user_id);
             <p class="text-gray-600">No notes available.</p>
         <?php endif; ?>
 
+        <br>
+
         <a href="../app/logout.php" class="bg-gray-500 text-white py-2 px-4 rounded mt-6 hover:bg-gray-600 focus:outline-none focus:shadow-outline-gray">
             Logout
         </a>

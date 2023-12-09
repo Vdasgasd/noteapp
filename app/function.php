@@ -20,11 +20,6 @@ function registerUser($username, $password)
 {
     global $conn;
 
-
-    if (isUsernameExists($username)) {
-        return "Username already exists. Please choose another username.";
-    }
-
     $hashpass = password_hash($password, PASSWORD_BCRYPT);
     $sql = "INSERT INTO user (username, password) VALUES (?, ?)";
 
@@ -71,7 +66,6 @@ function saveNotes($userId, $content)
     $sql = "INSERT INTO note (user_id, content) VALUES (?,?)";
 
     $stmt = $conn->prepare($sql);
-
     $stmt->bind_param("is", $userId, $content);
     $stmt->execute();
     $stmt->close();
